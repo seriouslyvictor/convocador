@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convocador - Instituto Eurofarma/Senai</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <h1><span class="gradient">Bem vindo ao convocador!</span></h1>
+    <div class="cont--instrucoes">
+        <h2>Instruções de uso</h2>
+        <ol>
+            <li>
+                Faça o upload de um arquivo no formato <strong>.csv</strong> com o <strong>nome</strong> e o
+                <strong>whatsapp</strong> dos candidatos
+            </li>
+            <li>
+                Defina uma mensagem de convocação, a mensagem será inserida automaticamente ao clicar no link do
+                whatsapp.
+            </li>
+            <li>
+                Clique em importar para criar a lista de convocação.
+            </li>
+            <p>Obs: a lista não fica salva, caso feche e abra a página, terá que começar tudo de novo!</p>
+        </ol>
+    </div>
+    <form id="form--principal" action="">
+        <textarea name="mensagem" id="msg" cols="20" rows="5" placeholder="Insira sua mensagem aqui..."
+            draggable="false" spellcheck="true"></textarea>
+        <div class="wrapper">
+            <input type="file" name="arquivo" id="arquivo" accept=".csv" required>
+            <div class="wrapper--btn">
+                <button type="submit" class="btn--primario">Importar</button> 
+                <button type="reset" class="btn--secundario">Limpar</button>
+            </div>
+        </div>
+    </form>
+    <div class="containter--contatos">
+        <h3>Nome</h3> <h3>Link Whatsapp</h3>
+        <p>Usuário de teste</p> <a href="https:\\wa.me\5511911926036" target="_blank">https:\\wa.me\5511911926036</a>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

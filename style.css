@@ -1,0 +1,135 @@
+:root {
+    --cor--primaria: #b91c1c;
+    --cor--secundaria: #ef4444;
+    --bg--color: #fefafa;
+    --text-black: #44403c;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: var(--bg--color);
+    max-width: 80%;
+    margin: 0 auto;
+    font-size: 1.6rem;
+    color: var(--text-black);
+}
+
+.gradient {
+    background: -webkit-linear-gradient(to right, #dd1818, #333333);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #dd1818, #333333); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn--primario, .btn--secundario, .btn--terciario {
+    border-radius: 0.9rem;
+    padding: 1.1rem 2.4rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn--primario { 
+    background-color: var(--cor--primaria);
+    color: #fefafa;
+    border: 0.2rem solid var(--cor--primaria);
+}
+
+.btn--secundario {
+    background-color: transparent;
+    color: var(--cor--primaria);
+    border: 0.2rem solid var(--cor--primaria);
+}
+
+.btn--terciario {
+    background-color: transparent;
+    color: var(--cor--primaria);
+}
+
+
+/* ===================Fim dos Gerais=================== */
+
+.cont--instrucoes {
+    border: 0.2rem solid var(--cor--primaria);
+    position: relative;
+    padding: 1.6rem 3.2rem;
+    border-radius: 9px;
+    margin: 3.6rem 0rem;
+}
+
+
+h1 {
+    font-size: 4.8rem;
+
+}
+
+h2 {
+    position: absolute;
+    background-color: var(--bg--color);
+    top: 0;
+    left: 16px;
+    transform: translateY(-60%);
+    padding: 0rem 0.9rem;
+}
+
+h3 {
+    text-transform: uppercase;
+    color: var(--cor--primaria)
+}
+
+ol {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style-type: none;
+}
+
+li::before {
+    content: "✔";
+    position: absolute;
+    left: 1rem;
+    color: var(--cor--secundaria);
+}
+
+#msg {
+    border-radius: 9px;
+    width: 100%;
+    font-size: 1.6rem;
+    padding: 0.9rem 1.6rem;
+    resize: none;
+}
+
+input[type="file"] {
+    color: #44403c;
+    font-size: 1.4rem;
+}
+
+.wrapper {
+    margin-top: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrapper--btn {
+    display: flex;
+    gap: 2rem;
+}
+
+.containter--contatos {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+}
