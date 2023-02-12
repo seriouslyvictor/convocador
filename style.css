@@ -132,10 +132,15 @@ input[type="file"] {
 }
 
 .container--contatos {
+    /* max-width: 78%; */
     margin-top: 4rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
+}
+
+.container--contatos p {
+    justify-self: left;
 }
 
 a:link {

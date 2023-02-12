@@ -27,6 +27,7 @@ meuForm.addEventListener('submit', (e) => {
 limpar.addEventListener('click', limparContatos);
 
 function converterCSV(string, delimitador = ';') {
+    // Desprezamos o cabeçalho do excel e criamos um padrão
     // const cabecalho = string.trim().slice(0, string.indexOf(`\n`)).split(delimitador)
     const cabecalho = ['Nome', 'Zap'];
     console.log(cabecalho)
