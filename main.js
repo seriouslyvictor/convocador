@@ -51,7 +51,7 @@ return arry
 function popularDados(dataSet) {
     let mensagem = encodeURI(document.querySelector('#msg').value)
     for (const contato of dataSet) {
-    let string = `<p class="contato--nome">${contato.Nome}</p><a class="contato--zap" href="https://wa.me/${contato.Zap}?text=${mensagem}" target="_blank">https://wa.me/${contato.Zap}</a>`;
+    let string = `<p class="contato--nome">${contato.Nome}</p><a class="contato--zap" href="https://whatsa.me/${contato.Zap}?t=${mensagem}" target="_blank">https://whatsa.me/${contato.Zap}</a>`;
     contatos.insertAdjacentHTML("beforeend", string)
 }
     
