@@ -7,6 +7,31 @@
     <title>Convocador - Instituto Eurofarma/Senai</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Primary Meta Tags -->
+    <title>Convocador - Instituto Eurofarma/Senai</title>
+    <meta name="title" content="Convocador - Instituto Eurofarma/Senai">
+    <meta name="description" content="Ferramenta para criar uma lista de distribuição do WhatsApp baseado em arquivos CSV.
+
+WIP">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://convocador.netlify.app/">
+    <meta property="og:title" content="Convocador - Instituto Eurofarma/Senai">
+    <meta property="og:description" content="Ferramenta para criar uma lista de distribuição do WhatsApp baseado em arquivos CSV.
+
+WIP">
+    <meta property="og:image" content="screen-convocador.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://convocador.netlify.app/">
+    <meta property="twitter:title" content="Convocador - Instituto Eurofarma/Senai">
+    <meta property="twitter:description" content="Ferramenta para criar uma lista de distribuição do WhatsApp baseado em arquivos CSV.
+
+WIP">
+    <meta property="twitter:image" content="screen-convocador.png">
 </head>
 
 <body>
@@ -25,8 +50,8 @@
             <li>
                 Clique em importar para criar a lista de convocação.
             </li>
-            <p>Obs: a lista não fica salva, caso feche e abra a página, terá que começar tudo de novo!</p>
         </ol>
+        <p>Obs: a lista não fica salva, caso feche e abra a página, terá que começar tudo de novo!</p>
     </div>
     <form id="form--principal" action="">
         <textarea name="mensagem" id="msg" cols="20" rows="5" placeholder="Insira sua mensagem aqui..."
@@ -34,13 +59,14 @@
         <div class="wrapper">
             <input type="file" name="arquivo" id="arquivo" accept=".csv" required>
             <div class="wrapper--btn">
-                <button type="submit" class="btn--primario">Importar</button> 
+                <button type="submit" class="btn--primario">Importar</button>
                 <button type="reset" class="btn--secundario" id="limpar">Limpar</button>
             </div>
         </div>
     </form>
     <div class="container--contatos">
-        <h3>Nome</h3> <h3>Link Whatsapp</h3>
+        <h3>Nome</h3>
+        <h3>Link Whatsapp</h3>
     </div>
     <script src="main.js"></script>
 </body>
