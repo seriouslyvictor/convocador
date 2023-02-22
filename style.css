@@ -119,6 +119,13 @@ input[type="file"] {
     font-size: 1.4rem;
 }
 
+.wrapper--templates {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-height: 3rem;
+}
+
 .wrapper {
     margin-top: 1.2rem;
     display: flex;
@@ -149,4 +156,12 @@ a:link {
 
 a:visited {
     color: #999999;
+}
+
+/* Classes inseridas dinamicamente com JS */
+
+.revelar {
+    transition: 1s ease-in-out;
+    max-height: 18rem;
+    margin-bottom: 1.2rem;
 }

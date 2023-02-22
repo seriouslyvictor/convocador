@@ -7,7 +7,7 @@
     <title>Convocador - Instituto Eurofarma/Senai</title>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="favicon.webp" type="image/x-icon">
-
+    <script src="https://kit.fontawesome.com/bcf72d1d5f.js" crossorigin="anonymous"></script>
     <!-- Primary Meta Tags -->
     <title>Convocador - Instituto Eurofarma/Senai</title>
     <meta name="title" content="Convocador - Instituto Eurofarma/Senai">
@@ -54,7 +54,36 @@ WIP">
         <p>Obs: a lista não fica salva, caso feche e abra a página, terá que começar tudo de novo!</p>
     </div>
     <form id="form--principal" action="">
-        <textarea name="mensagem" id="msg" cols="20" rows="5" placeholder="Insira sua mensagem aqui..."
+        <div class="wrapper--templates">
+            <label for="templates">Modelos Prontos:
+                <select name="templates" id="templates">
+                    <option value="mock">Selecione...</option>
+                    <option value="eurofarma2">2ª Etapa do Processo Seletivo - Eurofarma</option>
+                </select>
+            </label>
+            <div class="wrapper--btn">
+                <label for="dia">Dia: <input type="date" name="dia" id="dia"></label>
+                <label for="horario">Horário: <input type="time" name="horario" id="horario"></label>
+            </div>
+            <label for="local">Local:
+                <select name="local" id="local">
+                    <option value="sp">SP</option>
+                    <option value="ita">Itapevi</option>
+                </select>
+            </label>
+            <label for="cursos">Curso:
+                <select name="cursos" id="cursos">
+                    <option value="Técnicas Administrativas">Técnicas Administrativas</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Link - Informática Prática">Link - Informática Prática</option>
+                    <option value="Pacote Office">Pacote Office</option>
+                    <option value="Excel Completo">Excel Completo</option>
+                    <option value="Front-End">Front-End</option>
+                    <option value="Design Gráfico">Design Gráfico</option>
+                </select>
+            </label>
+        </div>
+        <textarea name="mensagem" id="msg" cols="20" rows="8" placeholder="Insira sua mensagem aqui..."
             draggable="false" spellcheck="true"></textarea>
         <div class="wrapper">
             <input type="file" name="arquivo" id="arquivo" accept=".csv" required>
