@@ -102,38 +102,34 @@ function limparContatos() {
 function setarMensagem(dia, horario = "8:00", curso, local) {
   let diaConvertido = converterData(dia);
   let diaSemana = descobrirDia(dia);
-  let string = `*Convocação: 2ª Etapa do Processo Seletivo para curso SENAI em parceria com o INSTITUTO EUROFARMA 2023*
-  
-      Olá {nomeCandidato}.
-      
-      Parabéns! Você foi selecionado/a para participar da segunda etapa da seleção para o curso de *${curso}* que será ministrado no *Instituto Eurofarma em ${
-    local === "sp" ? "SÃO PAULO" : "ITAPEVI"
-  }*.
-      Para participar desta etapa você deverá comparecer no local, dia e horário informados abaixo:
-      
-      *${local === "sp" ? "Instituto Eurofarma" : "ESCOLA 5.0"}*
-      *Endereço: ${
-        local === "sp"
-          ? "Av. das Nações Unidas, 22215 - Jurubatuba, próximo ao Shopping SP Market"
-          : "Rodovia Engenheiro Renê Benedito da Silva, 279 - 1° Andar (em cima do Bom Prato) Cohab setor I - Logo na rotatória"
-      } .*
-      *${diaConvertido} - ${diaSemana} às ${horario}*
-      
-      OBSERVAÇÕES: NESTA ETAPA NÃO É NECESSÁRIO PRESENÇA DO RESPONSÁVEL, APENAS O CANDIDATO DEVERÁ OBRIGATORIAMENTE COMPARECER.
-      É OBRIGATÓRIO A APRESENTAÇÃO DOS SEGUINTES DOCUMENTOS NO DIA:
-      
-      • RG ou documento oficial com foto – Original;
-      • Último BOLETIM ESCOLAR, ou se já concluiu o Ensino Médio trazer Histórico Escolar (Pode ser digital);
-      
-      *Não é necessário trazer cópia dos documentos, somente original.*
-      
-      Lembrando que caso não compareça no dia e local indicados você será desclassificado do processo seletivo e perderá a oportunidade de realizar o curso, que será oferecido de forma totalmente gratuita.
-      
-      Para confirmar sua participação, responda seu nome completo no link abaixo:
-      
-      https://forms.gle/vHMMAPivgdGJ8DVc8
-      
-      *Boa sorte!*`;
+  let string = `
+📣 *Convocação: 2ª Etapa do Processo Seletivo para curso SENAI em parceria com o INSTITUTO EUROFARMA 2023*
+
+Olá {nomeCandidato}.
+
+Parabéns! Você foi selecionado/a para participar da segunda etapa da seleção para o curso de *${curso}* que será ministrado no *Instituto Eurofarma em ${local === "sp" ? "SÃO PAULO" : "ITAPEVI"}*.
+Para participar desta etapa você deverá comparecer no local, dia e horário informados abaixo:
+
+🚩 *${local === "sp" ? "Instituto Eurofarma" : "ESCOLA 5.0"}*
+🚩 *Endereço: ${local === "sp" ? "Av. das Nações Unidas, 22215 - Jurubatuba, próximo ao Shopping SP Market" : "Rodovia Engenheiro Renê Benedito da Silva, 279 - 1° Andar (em cima do Bom Prato) Cohab setor I - Logo na rotatória"
+}.*
+⌚ *${diaConvertido} - ${diaSemana} às ${horario}*
+
+OBSERVAÇÕES: NESTA ETAPA NÃO É NECESSÁRIO PRESENÇA DO RESPONSÁVEL, APENAS O CANDIDATO DEVERÁ OBRIGATORIAMENTE COMPARECER.
+É OBRIGATÓRIO A APRESENTAÇÃO DOS SEGUINTES DOCUMENTOS NO DIA:
+
+• RG ou documento oficial com foto – Original;
+• Último BOLETIM ESCOLAR, ou se já concluiu o Ensino Médio trazer Histórico Escolar (Pode ser digital);
+
+*Não é necessário trazer cópia dos documentos, somente original.*
+
+Lembrando que caso não compareça no dia e local indicados você será desclassificado do processo seletivo e perderá a oportunidade de realizar o curso, que será oferecido de forma totalmente gratuita.
+
+Para confirmar sua participação, responda seu nome completo no link abaixo:
+
+https://forms.gle/vHMMAPivgdGJ8DVc8
+
+*Boa sorte!*`;
   textArea.value = string;
 }
 
