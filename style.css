@@ -24,6 +24,7 @@ body {
     color: var(--text-black);
 }
 
+strong,
 .gradient {
     background: -webkit-linear-gradient(to right, #dd1818, #333333);
     /* Chrome 10-25, Safari 5.1-6 */
@@ -107,11 +108,16 @@ li::before {
 }
 
 #msg {
+    min-height: 18.75rem;
+    margin-top: 3rem;
+    background-color: white;
+    border: 2px solid rgba(0, 0, 0, 0.10);
     border-radius: 9px;
     width: 100%;
     font-size: 1.6rem;
     padding: 0.9rem 1.6rem;
     resize: none;
+    white-space: pre-wrap;
 }
 
 input[type="file"] {
@@ -123,7 +129,6 @@ input[type="file"] {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-height: 3rem;
 }
 
 .wrapper {
@@ -139,13 +144,15 @@ input[type="file"] {
 }
 
 .container--contatos {
-    /* max-width: 78%; */
     margin-top: 4rem;
+    margin-bottom: 3.75rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
     place-items: center;
+    gap: 1.5rem;
 }
 
+.header--zap,
 .container--contatos p {
     justify-self: left;
 }
@@ -158,10 +165,10 @@ a:visited {
     color: #999999;
 }
 
-/* Classes inseridas dinamicamente com JS */
+.contato--nome {
+    padding: 6px 18px;
+}
 
-.revelar {
-    transition: 1s ease-in-out;
-    max-height: 18rem;
-    margin-bottom: 1.2rem;
+.contato--zap {
+    justify-self: flex-start;
 }

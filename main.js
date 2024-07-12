@@ -9,22 +9,19 @@ const dia = document.querySelector("#dia");
 const horario = document.querySelector("#horario");
 const cursos = document.querySelector("#cursos");
 const local = document.querySelector("#local");
+const linkForms = document.getElementById("link--forms")
 
 let CSV;
 let dados = {};
 
-dia.addEventListener("change", () =>
-  setarMensagem(dia.value, horario.value, cursos.value, local.value)
-);
-horario.addEventListener("change", () =>
-  setarMensagem(dia.value, horario.value, cursos.value, local.value)
-);
-local.addEventListener("change", () =>
-  setarMensagem(dia.value, horario.value, cursos.value, local.value)
-);
-cursos.addEventListener("change", () =>
-  setarMensagem(dia.value, horario.value, cursos.value, local.value)
-);
+// Function to handle the change event
+function handleChange() {
+  setarMensagem(dia.value, horario.value, cursos.value, local.value, linkForms.value);
+}
+
+[dia, horario, local, cursos].forEach(element => {
+  element.addEventListener("change", handleChange);
+});
 
 meuForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -68,7 +65,10 @@ function popularDados(dataSet) {
   //   let mensagem = encodeURI(document.querySelector("#msg").value);
   for (let contato of dataSet) {
     // insere os nomes do usuário dinamicamente
-    let mensagem = textArea.value.replace(`{nomeCandidato}`, `${contato.Nome}`);
+    let mensagem = textArea.textContent.replace(
+      `{nomeCandidato}`,
+      `${contato.Nome}`
+    );
     mensagem = encodeURI(mensagem);
     let string = `<p class="contato--nome">${contato.Nome}</p><a class="contato--zap" href="https://web.whatsapp.com/send/?phone=${contato.Zap}&text=${mensagem}&type=phone_number&app_absent=0" target="_blank">https://wa.me/${contato.Zap}</a>`;
     contatos.insertAdjacentHTML("beforeend", string);
@@ -90,23 +90,22 @@ function setarMensagem(dia, horario = "8:00", curso, local) {
   const anoAtual = new Date().getFullYear();
   let diaConvertido = converterData(dia);
   let diaSemana = descobrirDia(dia);
+  const substring = `
+Para confirmar sua participação, responda seu nome completo no link abaixo:
+<strong>${linkForms.value}</strong>"
+  `
   let string = `
 📣 *Convocação: 2ª Etapa do Processo Seletivo para curso SENAI em parceria com o INSTITUTO EUROFARMA ${anoAtual}*
 
-Olá {nomeCandidato}.
+Olá <strong class="gradient">{nomeCandidato}</strong>.
 
-Parabéns! Você foi selecionado/a para participar da segunda etapa da seleção para o curso de *${curso}* que será ministrado no *Instituto Eurofarma em ${
-    local === "sp" ? "SÃO PAULO" : "ITAPEVI"
-  }*.
+Parabéns! Você foi selecionado/a para participar da segunda etapa da seleção para o curso de <strong>*${curso}*</strong> que será ministrado no Instituto Eurofarma em <strong> *${local === "sp" ? "SÃO PAULO" : "ITAPEVI"}*</strong>.
 Para participar desta etapa você deverá comparecer no local, dia e horário informados abaixo:
 
-🚩 *${local === "sp" ? "Instituto Eurofarma" : "ESCOLA 5.0"}*
-🚩 *Endereço: ${
-    local === "sp"
-      ? "Av. das Nações Unidas, 22215 - Jurubatuba, próximo ao Shopping SP Market"
-      : "Rodovia Engenheiro Renê Benedito da Silva, 279 - 1° Andar (em cima do Bom Prato) Cohab setor I - Logo na rotatória"
-  }.*
-⌚ *${diaConvertido} - ${diaSemana} às ${horario}*
+🚩 *<strong>${local === "sp" ? "Instituto Eurofarma" : "ESCOLA 5.0"}</strong>*
+🚩 *Endereço: <strong>${local === "sp" ? "Av. das Nações Unidas, 22215 - Jurubatuba, próximo ao Shopping SP Market" : "Rodovia Engenheiro Renê Benedito da Silva, 279 - 1° Andar (em cima do Bom Prato) Cohab setor I - Logo na rotatória"}.
+</strong>*
+⌚ *<strong>${diaConvertido} - ${diaSemana} às ${horario}</strong>*
 
 OBSERVAÇÕES: NESTA ETAPA NÃO É NECESSÁRIO PRESENÇA DO RESPONSÁVEL, APENAS O CANDIDATO DEVERÁ OBRIGATORIAMENTE COMPARECER.
 É OBRIGATÓRIO A APRESENTAÇÃO DOS SEGUINTES DOCUMENTOS NO DIA:
@@ -117,13 +116,9 @@ OBSERVAÇÕES: NESTA ETAPA NÃO É NECESSÁRIO PRESENÇA DO RESPONSÁVEL, APENAS
 *Não é necessário trazer cópia dos documentos, somente original.*
 
 Lembrando que caso não compareça no dia e local indicados você será desclassificado do processo seletivo e perderá a oportunidade de realizar o curso, que será oferecido de forma totalmente gratuita.
-
-Para confirmar sua participação, responda seu nome completo no link abaixo:
-
-https://forms.gle/vHMMAPivgdGJ8DVc8
-
+${linkForms.value ? substring : ""}
 *Boa sorte!*`;
-  textArea.value = string;
+  textArea.innerHTML = string;
 }
 
 function converterData(data) {

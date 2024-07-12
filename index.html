@@ -63,7 +63,7 @@ WIP">
             </label>
             <div class="wrapper--btn">
                 <label for="dia">Dia: <input type="date" name="dia" id="dia"></label>
-                <label for="horario">Horário: <input type="time" name="horario" id="horario"></label>
+                <label for="horario">Horário: <input type="time" name="horario" id="horario" value="08:00"></label>
             </div>
             <label for="local">Local:
                 <select name="local" id="local">
@@ -82,9 +82,12 @@ WIP">
                     <option value="Design Gráfico">Design Gráfico</option>
                 </select>
             </label>
+            <label for="link--forms"> Link do Forms (Opcional):
+                <input type="text" name="link--forms" id="link--forms">
+            </label>
         </div>
-        <textarea name="mensagem" id="msg" cols="20" rows="8" placeholder="Insira sua mensagem aqui..."
-            draggable="false" spellcheck="true"></textarea>
+        <div name="mensagem" id="msg" placeholder="Insira sua mensagem aqui..." draggable="false" spellcheck="false"
+            contenteditable="true">Insira sua mensagem aqui...</div>
         <div class="wrapper">
             <input type="file" name="arquivo" id="arquivo" accept=".csv" required>
             <div class="wrapper--btn">
@@ -94,8 +97,8 @@ WIP">
         </div>
     </form>
     <div class="container--contatos">
-        <h3>Nome</h3>
-        <h3>Link Whatsapp</h3>
+        <h3 class="header--nome">Nome</h3>
+        <h3 class="header--zap">Link Whatsapp</h3>
     </div>
     <script src="main.js"></script>
 </body>
