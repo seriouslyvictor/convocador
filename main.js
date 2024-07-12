@@ -1,8 +1,4 @@
-"use strict";
-
 const meuForm = document.getElementById("form--principal");
-// const formTemplates = document.querySelectorAll('.wrapper--templates>label>*');
-// const formTemplates2 = document.querySelectorAll('.wrapper--templates>div>label>*');
 const upload = document.getElementById("arquivo");
 const limpar = document.querySelector("#limpar");
 const textArea = document.getElementById("msg");
@@ -16,12 +12,6 @@ const local = document.querySelector("#local");
 
 let CSV;
 let dados = {};
-
-templates.addEventListener("change", () => {
-  templates.value !== "mock"
-    ? wrapperTemplates.classList.add("revelar")
-    : wrapperTemplates.classList.remove("revelar");
-});
 
 dia.addEventListener("change", () =>
   setarMensagem(dia.value, horario.value, cursos.value, local.value)
@@ -37,13 +27,11 @@ cursos.addEventListener("change", () =>
 );
 
 meuForm.addEventListener("submit", (e) => {
-  event.preventDefault(e);
+  e.preventDefault();
   const arquivo = upload.files[0];
   const leitor = new FileReader();
   leitor.onload = (e) => {
-    // console.log('content: ', e.target.result)
     CSV = e.target.result.replaceAll("\r", "");
-    // limparCSV = CSV.replaceAll('\r', "");
     dados = converterCSV(CSV);
     popularDados(dados);
   };
@@ -54,7 +42,6 @@ limpar.addEventListener("click", limparContatos);
 
 function converterCSV(string, delimitador = ";") {
   // Desprezamos o cabeçalho do excel e criamos um padrão
-  // const cabecalho = string.trim().slice(0, string.indexOf(`\n`)).split(delimitador)
   const cabecalho = ["Nome", "Zap"];
   console.log(cabecalho);
   const linhas = string
@@ -100,19 +87,25 @@ function limparContatos() {
 }
 
 function setarMensagem(dia, horario = "8:00", curso, local) {
+  const anoAtual = new Date().getFullYear();
   let diaConvertido = converterData(dia);
   let diaSemana = descobrirDia(dia);
   let string = `
-📣 *Convocação: 2ª Etapa do Processo Seletivo para curso SENAI em parceria com o INSTITUTO EUROFARMA 2023*
+📣 *Convocação: 2ª Etapa do Processo Seletivo para curso SENAI em parceria com o INSTITUTO EUROFARMA ${anoAtual}*
 
 Olá {nomeCandidato}.
 
-Parabéns! Você foi selecionado/a para participar da segunda etapa da seleção para o curso de *${curso}* que será ministrado no *Instituto Eurofarma em ${local === "sp" ? "SÃO PAULO" : "ITAPEVI"}*.
+Parabéns! Você foi selecionado/a para participar da segunda etapa da seleção para o curso de *${curso}* que será ministrado no *Instituto Eurofarma em ${
+    local === "sp" ? "SÃO PAULO" : "ITAPEVI"
+  }*.
 Para participar desta etapa você deverá comparecer no local, dia e horário informados abaixo:
 
 🚩 *${local === "sp" ? "Instituto Eurofarma" : "ESCOLA 5.0"}*
-🚩 *Endereço: ${local === "sp" ? "Av. das Nações Unidas, 22215 - Jurubatuba, próximo ao Shopping SP Market" : "Rodovia Engenheiro Renê Benedito da Silva, 279 - 1° Andar (em cima do Bom Prato) Cohab setor I - Logo na rotatória"
-}.*
+🚩 *Endereço: ${
+    local === "sp"
+      ? "Av. das Nações Unidas, 22215 - Jurubatuba, próximo ao Shopping SP Market"
+      : "Rodovia Engenheiro Renê Benedito da Silva, 279 - 1° Andar (em cima do Bom Prato) Cohab setor I - Logo na rotatória"
+  }.*
 ⌚ *${diaConvertido} - ${diaSemana} às ${horario}*
 
 OBSERVAÇÕES: NESTA ETAPA NÃO É NECESSÁRIO PRESENÇA DO RESPONSÁVEL, APENAS O CANDIDATO DEVERÁ OBRIGATORIAMENTE COMPARECER.
@@ -135,15 +128,15 @@ https://forms.gle/vHMMAPivgdGJ8DVc8
 
 function converterData(data) {
   // Divida a string em partes (ano, mês, dia)
-  var partes = data.split("-");
+  const partes = data.split("-");
 
   // Crie um objeto Date com as partes da string
-  var data = new Date(partes[0], partes[1] - 1, partes[2]);
+  data = new Date(partes[0], partes[1] - 1, partes[2]);
 
   // Obtenha as partes da data (dia, mês, ano) como strings
-  var dia = data.getDate().toString();
-  var mes = (data.getMonth() + 1).toString(); // lembre-se que o mês é indexado a partir de 0
-  var ano = data.getFullYear().toString();
+  let dia = data.getDate().toString();
+  let mes = (data.getMonth() + 1).toString(); // lembre-se que o mês é indexado a partir de 0
+  let ano = data.getFullYear().toString();
 
   // Adicione um zero à esquerda se o dia ou mês for menor que 10
   if (dia.length < 2) {
