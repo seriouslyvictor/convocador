@@ -40,7 +40,6 @@ limpar.addEventListener("click", limparContatos);
 function converterCSV(string, delimitador = ";") {
   // Desprezamos o cabeçalho do excel e criamos um padrão
   const cabecalho = ["Nome", "Zap"];
-  console.log(cabecalho);
   const linhas = string
     .trim()
     .slice(string.indexOf("\n") + 1)
@@ -48,11 +47,7 @@ function converterCSV(string, delimitador = ";") {
   console.log(linhas);
   const arry = linhas.map((linha) => {
     const valores = linha.split(delimitador);
-    console.log(valores);
     const elementos = cabecalho.reduce((objeto, cabeçalho, indice) => {
-      // console.log(objeto)
-      // console.log(cabeçalho)
-      // console.log(indice)
       objeto[cabeçalho] = valores[indice];
       return objeto;
     }, {});
@@ -162,4 +157,39 @@ function descobrirDia(data) {
   ];
   const diaDescoberto = dias[diaSemana];
   return diaDescoberto;
+}
+
+// Link automation 
+
+
+function automateLinks() {
+  const intervalTime = 10000; // 5000ms = 5 seconds
+  const links = document.querySelectorAll('a'); // Adjust the selector to match your links
+  let currentIndex = 0;
+  const timerId = setInterval(() => {
+    // Check if the currentIndex is within the bounds of the links array
+    if (currentIndex < links.length) {
+      // Click the current link
+      const win = window.open(links[currentIndex].href);
+      setTimeout(() => {
+        // Simulate the Enter key press in the new window
+        simulateEnterKey(win);
+
+        // Close the window after a short delay
+        setTimeout(() => {
+          win.close();
+        }, 5000); // Adjust the delay as needed
+      }, 5000); // Adjust the delay as needed
+      currentIndex++;
+
+    } else {
+      // Clear the interval if all links have been clicked
+      clearInterval(timerId);
+    }
+  }, intervalTime);
+}
+
+function simulateEnterKey(win) {
+  const event = new KeyboardEvent('keydown', { key: 'Enter', keyCode: 13, code: 'Enter', which: 13, bubbles: true });
+  win.document.dispatchEvent(event);
 }
